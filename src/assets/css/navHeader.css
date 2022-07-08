@@ -97,6 +97,7 @@
     height: 260px;
     background-color: #FFFFFF;   
     color: #666; 
+    z-index: 3;
 }
 .showAd div{
     padding: 10px;

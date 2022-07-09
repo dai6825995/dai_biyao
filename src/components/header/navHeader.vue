@@ -3,17 +3,10 @@
     <div class="page_box">
       <div class="nav_tit">
         <div class="nav_logo">
-          <img src="../assets/images/logo.png" alt="" height="51" />
+          <img src="@/assets/images/logo.png" alt="" height="51" />
         </div>
         <div class="nav_search">
-          <div>
-            <input
-              type="text"
-              placeholder="请输入要搜索的商品"
-              v-model="search_word"
-            />
-            <span class="nav_search_img"></span>
-          </div>
+          <serach v-model:sw="$store.state.search_word"></serach>
           <div>
             <ul class="nav_hotwords">
               <li
@@ -34,7 +27,7 @@
         <router-link to="/" class="liaojie">
           了解必要
           <div class="showAd">
-            <p><img src="../assets/images/兔.gif" width="200" alt="" /></p>
+            <p><img src="@/assets/images/兔.gif" width="200" alt="" /></p>
             <div>
               <p>关注必要微信公众号</p>
               <p>了解你想了解的一切</p>
@@ -52,12 +45,11 @@
 
 
 <script>
-
+import serach from "./serach.vue";
 export default {
   data() {
     return {
       hostword: [],
-      search_word: "",
     };
   },
   created() {
@@ -65,7 +57,7 @@ export default {
   },
   methods: {
     init() {
-      this.$Axios("/classify/hotWord?callback=a&_=a").then((res) => {
+      this.$Axios("/classify/hotWord?callback=a").then((res) => {
         this.hostword = JSON.parse(
           /a\((.*?)\)/.exec(res.data)[1]
         ).data.hotwords;
@@ -73,9 +65,12 @@ export default {
     },
     // 点击热词更改输入框，并跳转到搜索页面（未实现）
     setSearch(word) {
-      this.search_word = word;
+      this.$store.commit("setSearch_word", word)
     },
   },
+  components:{
+    serach,
+  }
 };
 </script>
 

@@ -1,5 +1,4 @@
 <template>
-  <div class="banner">
     <ul class="banner_list">
       <li class="banner_main" v-for="(item, index) in banner_list" :key="index">
         <p>
@@ -11,7 +10,6 @@
         </p>
       </li>
     </ul>
-  </div>
 </template>
 
 <script>
@@ -27,6 +25,7 @@ export default {
   methods: {
     init() {
       this.$Axios(this.$Apis.getTypeOne).then((res) => {
+        // console.log(res);
         let count = 0;
         let lie = 0;
         res.data.forEach((item, index) => {
@@ -42,27 +41,19 @@ export default {
           }
         });
       });
-      console.log(this.banner_list);
+      //   console.log(this.banner_list);
     },
   },
 };
 </script>
 
 <style scoped>
-.banner {
-  position: relative;
-  margin-top: 10px;
-  width: 1080px;
-  height: 360px;
-  background: url("@/assets/images/banner2.png") no-repeat center center;
-  background-size: cover;
-}
 .banner_list {
   position: absolute;
   left: 0;
   top: 0;
   z-index: 1;
-  height: 340px;
+  height: 360px;
   padding: 10px 0;
   background-image: url(@/assets/images/category-back.png);
 }
@@ -75,16 +66,16 @@ export default {
   line-height: 34px;
   padding-left: 30px;
 }
-.banner_main > p:hover{
-    background-color: #77717F;
+.banner_main > p:hover {
+  background-color: #77717f;
 }
 .banner_main > p > a {
   display: inline-block;
   font-size: 14px;
   color: #fff;
 }
-.banner_main > p > a:hover{
-    color: #f7b200;
+.banner_main > p > a:hover {
+  color: #f7b200;
 }
 .banner_main > p > span {
   margin: 0 5px;

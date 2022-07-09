@@ -1,15 +1,21 @@
 <template>
-    <ul class="banner_list">
-      <li class="banner_main" v-for="(item, index) in banner_list" :key="index">
-        <p>
-          <a href="#">{{ item.list[0] }}</a>
-          <span>/</span>
-          <a href="#">{{ item.list[1] }}</a>
-          <span>/</span>
-          <a href="#">{{ item.list[2] }}</a>
-        </p>
-      </li>
-    </ul>
+  <ul class="banner_list">
+    <li class="banner_main" v-for="(item, index) in banner_list" :key="index">
+      <p>
+        <router-link :to="'/cifList/?type_one=' + item.list[0]">{{
+          item.list[0]
+        }}</router-link>
+        <span>/</span>
+        <router-link :to="'/cifList/?type_one=' + item.list[1]">{{
+          item.list[1]
+        }}</router-link>
+        <span>/</span>
+        <router-link :to="'/cifList/?type_one=' + item.list[2]">{{
+          item.list[2]
+        }}</router-link>
+      </p>
+    </li>
+  </ul>
 </template>
 
 <script>

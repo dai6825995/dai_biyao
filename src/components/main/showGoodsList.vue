@@ -57,17 +57,7 @@ export default {
   created() {
     this.init();
     // 监听滚动
-    window.addEventListener("scroll", () => {
-      let wh = window.innerHeight;
-      let st = document.documentElement.scrollTop || document.body.scrollTop;
-      let ot = this.$refs.bottom.offsetTop;
-      if (wh + st >= ot - 100) {
-        this.page++;
-        if (this.page <= 6) {
-          this.init();
-        }
-      }
-    });
+    window.addEventListener("scroll",this.wScorll);
   },
   methods: {
     init() {
@@ -78,6 +68,21 @@ export default {
         });
       });
     },
+    // 滚动事件
+    wScorll() {
+      let wh = window.innerHeight;
+      let st = document.documentElement.scrollTop || document.body.scrollTop;
+      let ot = this.$refs.bottom.offsetTop;
+      if (wh + st >= ot - 100) {
+        this.page++;
+        if (this.page <= 6) {
+          this.init();
+        }
+      }
+    },
+  },
+  unmounted() {
+    window.removeEventListener("scroll",this.wScorll);
   },
 };
 </script>

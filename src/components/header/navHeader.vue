@@ -22,7 +22,7 @@
       </div>
       <div class="nav_bottom">
         <router-link to="/index">首页</router-link>
-        <router-link to="/index">每日上新</router-link>
+        <router-link to="/newList">每日上新</router-link>
         <a class="fengge"></a>
         <router-link to="/" class="liaojie">
           了解必要

@@ -5,8 +5,9 @@ export default (el, binding) => {
         let wh = window.innerHeight
         let st = document.body.scrollTop || document.documentElement.scrollTop
         let ot = el.offsetTop
-        if (ot + 200 < wh + st) {
+        if (ot + 100 < wh + st) {
             el.src = binding.value.src
+            // console.log(el.src );
             el.style.background = "none"
             window.removeEventListener("scroll", el.scrollHandler)
         }

@@ -2,15 +2,10 @@
   <div class="page_box">
     <fixedHeader></fixedHeader>
     <!-- 面包屑 -->
-    <div class="mb_box">
-      <router-link to="/">首页</router-link>
-      <router-link :to="'/cifList/?type_one=' + $route.query.type_one"
-        ><b>&gt;</b>{{ sel_one }}</router-link
-      >
-      <router-link v-show="sel_two" :to="'/cifList/?type_one=' + $route.query.type_one"
-        ><b>&gt;</b>{{ sel_two }}</router-link
-      >
-    </div>
+    <bread>
+      <a><b>&gt;</b>{{ sel_one }}</a>
+      <a><b>&gt;</b>{{ sel_two }}</a>
+    </bread>
     <!-- 分类 -->
     <div class="cateBread">
       <span>{{ sel_one }}</span>
@@ -37,6 +32,7 @@
 <script>
 import fixedHeader from "@/components/header/fixedHeader.vue";
 import goodItem from "@/components/main/goodItem.vue";
+import bread from "@/components/main/bread.vue";
 export default {
   data() {
     return {
@@ -85,6 +81,7 @@ export default {
   components: {
     fixedHeader,
     goodItem,
+    bread,
   },
   beforeRouteUpdate(to, from) {
     this.two_goodsList = [];
@@ -94,17 +91,7 @@ export default {
 </script>
 
 <style scoped>
-.mb_box {
-  margin: 20px auto;
-  color: #333;
-}
-.mb_box a {
-  color: #333;
-  font-size: 12px;
-}
-.mb_box b {
-  margin: 0 8px 0 5px;
-}
+
 .cateBread {
   margin: 20px 0 30px;
   padding-left: 20px;

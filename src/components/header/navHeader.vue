@@ -37,7 +37,7 @@
         </router-link>
         <router-link to="/index">购物车</router-link>
         <a class="fengge"></a>
-        <router-link to="/index">个人中心</router-link>
+        <router-link to="/logreg">个人中心</router-link>
       </div>
     </div>
   </div>
@@ -65,12 +65,18 @@ export default {
     },
     // 点击热词更改输入框，并跳转到搜索页面（未实现）
     setSearch(word) {
-      this.$store.commit("setSearch_word", word)
+      this.$store.commit("setSearch_word", word);
+      this.$router.push({
+        path: "/search",
+        query: {
+          search_word: word,
+        },
+      });
     },
   },
-  components:{
+  components: {
     serach,
-  }
+  },
 };
 </script>
 

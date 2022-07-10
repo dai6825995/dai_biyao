@@ -68,7 +68,7 @@ export default {
             });
           });
           this.sel_two = res.data[0];
-          console.log(this.two_goodsList);
+          // console.log(this.two_goodsList);
         }
       );
     },

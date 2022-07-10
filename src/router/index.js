@@ -16,6 +16,30 @@ const routes = [
   {
     path: "/newList",
     component: () => import('@/views/NewList')
+  },
+  {
+    path: "/search",
+    component: () => import('@/views/Search')
+  },
+  {
+    path: "/logreg",
+    component: () => import('@/views/Logreg'),
+    children:[
+      {
+        path:'/logreg',
+        redirect:'/logreg/login'
+      },
+      {
+        path:'/logreg/login',
+        component:() => import('@/router/logreg/Login'),
+
+      },
+      {
+        path:'/logreg/register',
+        component:() => import('@/router/logreg/Register'),
+
+      },
+    ]
   }
 ]
 

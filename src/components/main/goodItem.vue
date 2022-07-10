@@ -3,7 +3,7 @@
     <i
       ><img
         v-lazy="{
-          loadingimg: 'http://192.168.205.100:8080/img/%E5%85%94.2f8a719d.gif',
+          loadingimg: 'http://127.0.0.1:8080/img/%E5%85%94.2f8a719d.gif',
           src: good.imageUrl,
         }"
         alt=""

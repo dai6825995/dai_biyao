@@ -1,14 +1,12 @@
 <template>
   <div class="mb_box">
-      <router-link to="/">首页</router-link>
-      <slot></slot>
-    </div>
+    <router-link to="/">首页</router-link>
+    <slot></slot>
+  </div>
 </template>
 
 <script>
-export default {
-
-}
+export default {};
 </script>
 
 <style >

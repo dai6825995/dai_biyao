@@ -4,13 +4,28 @@
       type="text"
       placeholder="请输入要搜索的商品"
       v-model="$store.state.search_word"
+      @keypress.enter="goSerch($store.state.search_word)"
     />
-    <span class="nav_search_img"></span>
+    <span
+      @click="goSerch($store.state.search_word)"
+      class="nav_search_img"
+    ></span>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  methods: {
+    goSerch(word) {
+      this.$router.push({
+        path: "/search",
+        query: {
+          search_word: word,
+        },
+      });
+    },
+  },
+};
 </script>
 
 <style scoped>

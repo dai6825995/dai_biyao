@@ -35,9 +35,9 @@
             </div>
           </div>
         </router-link>
-        <router-link to="/index">购物车</router-link>
+        <router-link to="/shopcar">购物车</router-link>
         <a class="fengge"></a>
-        <router-link to="/logreg">个人中心</router-link>
+        <router-link :to='logPath'>{{ logName }}</router-link>
       </div>
     </div>
   </div>
@@ -76,6 +76,16 @@ export default {
   },
   components: {
     serach,
+  },
+  computed: {
+    logName() {
+      return sessionStorage.getItem("userName")
+        ? `欢迎` + sessionStorage.getItem("userName")
+        : "登录/注册";
+    },
+    logPath() {
+      return sessionStorage.getItem("userName") ? "" : "/logreg";
+    },
   },
 };
 </script>

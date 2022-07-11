@@ -1,7 +1,7 @@
 <template>
   <div class="item_box">
     <div class="goods" v-for="good in goodsList" :key="good.Id">
-      <a href="#">
+      <router-link :to="'/detail?goodId='+good.Id">
         <div class="goods_img">
           <img
             v-lazy="{
@@ -40,7 +40,7 @@
             <span class="evaluate">{{ good.evaluate }}条好评</span>
           </div>
         </div>
-      </a>
+      </router-link>
     </div>
     <div ref="bottom"></div>
   </div>

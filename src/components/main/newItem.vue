@@ -1,5 +1,5 @@
 <template>
-  <a>
+  <router-link :to="'/detail?goodId='+good.Id">
     <div class="words">
       <div class="supplier">{{ good.supplier }}</div>
       <div class="title">{{ good.title }}</div>
@@ -29,7 +29,7 @@
     <img
       :src=good.imageUrl
     />
-  </a>
+  </router-link>
 </template>
 
 <script>

@@ -1,12 +1,16 @@
 <template>
   <div class="page_box">
+    <fixedHeader></fixedHeader>
     <bread>
       <a><b>&gt;</b>全部分类</a>
       <a><b>&gt;</b>{{ $route.query.search_word }}</a>
     </bread>
     <div class="cateBread">
-      <span
+      <span v-if="searchList.length > 0"
         >根据您搜索的“{{ $route.query.search_word }}”，为您匹配到以下商品</span
+      >
+      <span v-else
+        >根据您搜索的“{{ $route.query.search_word }}”未匹配到商品</span
       >
     </div>
     <div class="search_box">
@@ -23,6 +27,7 @@
 <script>
 import goodItem from "@/components/main/goodItem.vue";
 import bread from "../components/main/bread.vue";
+import fixedHeader from "@/components/header/fixedHeader.vue";
 export default {
   created() {
     this.init();
@@ -37,7 +42,6 @@ export default {
       this.$Axios(
         this.$Apis.search + `?word=${this.$route.query.search_word}`
       ).then((res) => {
-        // console.log(res.data);
         this.searchList = res.data;
       });
     },
@@ -45,6 +49,13 @@ export default {
   components: {
     bread,
     goodItem,
+    fixedHeader,
+  },
+  watch: {
+    $route() {
+      this.searchList = "";
+      this.init();
+    },
   },
 };
 </script>

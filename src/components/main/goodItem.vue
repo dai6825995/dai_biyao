@@ -1,5 +1,5 @@
 <template>
-  <a>
+  <router-link :to="'/detail?goodId='+good.Id">
     <i
       ><img
         v-lazy="{
@@ -19,7 +19,7 @@
       <div class="mack" v-html="good.mack"></div>
     </div>
     <div class="evaluate">{{ good.evaluate }}条好评</div>
-  </a>
+  </router-link>
 </template>
 
 <script>
@@ -47,8 +47,8 @@ i {
   overflow: hidden;
 }
 img {
-  width: 255px;
-  height: 255px;
+  width: 100%;
+  height: 100%;
   transition: transform 0.5s ease-in-out 0s;
 }
 .supplier {

@@ -1,5 +1,6 @@
 <template>
   <div class="page_box">
+    <fixedHeader></fixedHeader>
     <bread>
       <a><b>&gt;</b>每日上新</a>
     </bread>
@@ -14,6 +15,7 @@
 <script>
 import bread from "@/components/main/bread.vue";
 import newItem from "@/components/main/newItem.vue";
+import fixedHeader from "@/components/header/fixedHeader.vue";
 export default {
   data() {
     return {
@@ -26,12 +28,13 @@ export default {
         item.labels = JSON.parse(item.labels);
       });
       this.newlist = res.data;
-      console.log(this.newlist);
+      // console.log(this.newlist);
     });
   },
   components: {
     bread,
     newItem,
+    fixedHeader,
   },
   computed: {
     time() {
@@ -55,7 +58,7 @@ export default {
   font-size: 24px;
   text-align: center;
 }
-.time{
+.time {
   padding: 0 20px;
   font-weight: 400;
   font-size: 24px;

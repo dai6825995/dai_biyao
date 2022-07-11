@@ -37,6 +37,14 @@ dl {
   border: 0;
   list-style: none;
 }
+.clearfix:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+}
 </style>
 
 <script>

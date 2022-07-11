@@ -17,24 +17,30 @@
 import serach from "./serach.vue";
 import classiftList from "../nav/classiftList.vue";
 export default {
+  methods: {
+    wscroll() {
+      let st = document.documentElement.scrollTop || document.body.scrollTop;
+      if (st > 60) {
+        this.$refs.fix.style.overflow = "unset";
+        this.$refs.fix.style.height = "60px";
+      } else {
+        this.$refs.fix.style.overflow = "hidden";
+        this.$refs.fix.style.height = "0px";
+      }
+    },
+  },
   components: {
     serach,
     classiftList,
   },
   created() {
-    window.onscroll = () => {
-      let st = document.documentElement.scrollTop || document.body.scrollTop;
-      if (st > 60) {
-          this.$refs.fix.style.overflow = 'unset';
-        this.$refs.fix.style.height = "60px";
-      } else {
-          this.$refs.fix.style.overflow = 'hidden';
-          this.$refs.fix.style.height = "0px";
-      }
-    };
+    window.addEventListener("scroll", this.wscroll);
   },
   mounted() {
     this.$refs.fix.style.height = "0px";
+  },
+  unmounted() {
+    window.removeEventListener("scroll", this.wscroll);
   },
 };
 </script>

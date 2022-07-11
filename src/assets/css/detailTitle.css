@@ -1,0 +1,256 @@
+ul, ol, li, dl {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    list-style: none;
+    display: block;
+    font-size: 12px;
+}
+.section-editor {
+    position: relative;
+}
+.editor-main {
+    float: left;
+}
+.editor-policy {
+    margin-top: 20px;
+}
+.editor-picture p {
+    position: relative;
+    float: left;
+    width: 460px;
+    height: 460px;
+    margin-right: 18px;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+.editor-picture p img {
+    max-width: 100%;
+    max-height: 100%;
+}
+img {
+    vertical-align: middle;
+    border: 0;
+}
+.editor-picture ul {
+    float: left;
+    height: 462px;
+    overflow: hidden;
+}
+.editor-picture .main-active {
+    border: 1px solid #523669;
+}
+.editor-picture li {
+    height: 80px;
+    width: 80px;
+    margin-bottom: 13px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    text-align: center;
+}
+.editor-picture li img {
+    max-width: 100%;
+    max-height: 100%;
+}
+.clearfix:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+}
+.editor-policy {
+    margin-top: 20px;
+}
+.editor-policy li {
+    position: relative;
+    float: left;
+    margin-right: 10px;
+    cursor: pointer;
+}
+.editor-policy li:hover>div{
+    display: block;
+    font-size: 12px;
+}
+.editor-policy span {
+    padding-left: 20px;
+    color: #333;
+    background: url(http://static3.biyao.com/pc/common/img/master/policy-icon.png?v=biyao_238b758) left center no-repeat;
+}
+span {
+    font-weight: 400;
+}
+.editor-policy div {
+    position: absolute;
+    top: 25px;
+    left: -55px;
+    z-index: 2;
+    display: none;
+    width: 230px;
+    padding: 10px 15px;
+    border-radius: 3px;
+    box-shadow: 0 1px 10px 4px rgb(0 0 0 / 5%);
+    background: #fff;
+    line-height: 27px;
+    color: #666;
+}
+.editor-policy i {
+    position: absolute;
+    top: -15px;
+    left: 80px;
+    z-index: 1;
+    width: 30px;
+    height: 15px;
+    background: url(http://static4.biyao.com/pc/common/img/master/triangle.png?v=biyao_5912cd0) no-repeat;
+}
+.editor-panel {
+    float: right;
+    width: 465px;
+}
+.panel-top {
+    border-bottom: 1px solid #ccc;
+}
+.panel-top h1 {
+    font-size: 20px;
+    font-weight: 400;
+    color: #333;
+    margin-bottom: 14px;
+}
+.panel-top p {
+    font-size: 14px;
+    color: #999;
+    margin-bottom: 14px;
+}
+.manufacturer {
+    position: relative;
+    display: inline-block;
+    height: 24px;
+    padding: 0 10px;
+    margin-bottom: 10px;
+    border-radius: 2px;
+    background-color: #F7F1E8;
+    font-size: 12px;
+    line-height: 24px;
+    color: #BF9E6B;
+    cursor: pointer;
+}
+.manufacturer i {
+    display: inline-block;
+    width: 12px;
+    height: 24px;
+    vertical-align: text-top;
+    line-height: 0;
+    background: url(http://static3.biyao.com/pc/www/img/product/icon_manufacturer_location_nomal12.png?v=biyao_c974916) no-repeat 0 1px;
+}
+i {
+    font-style: normal;
+}
+.panel-main {
+    color: #666;
+}
+.panel-main>li {
+    overflow: hidden;
+    margin-top: 15px;
+}
+.panel-main>li>span {
+    float: left;
+    width: 65px;
+    font-size: 14px;
+}
+.panel-main>li>div {
+    float: right;
+    width: 400px;
+}
+.panel-press>div>span {
+    display: inline-block;
+    height: 35px;
+    font-size: 14px;
+}
+.panel-maney {
+    color: #f85453;
+}
+.panel-maney i {
+    display: inline-block;
+    height: 35px;
+    vertical-align: -3px;
+    font-size: 28px;
+}
+.panel-duration {
+    display: inline-block;
+    height: 35px;
+    margin-left: 40px;
+    line-height: 35px;
+    vertical-align: 1px;
+}
+.panel-main .panel-specs {
+    margin-top: 15px;
+    overflow: visible;
+}
+.specs-dimension>span {
+    float: left;
+    width: 65px;
+    height: 35px;
+    line-height: 35px;
+    font-size: 14px;
+}
+.specs-dimension>div {
+    float: right;
+    width: 400px;
+}
+.specs-dimension ul {
+    width: 406px;
+}
+.specs-dimension .lowModel-specs-active {
+    border: 1px solid #523669;
+}
+.specs-dimension li {
+    position: relative;
+    display: inline-block;
+    margin: 0 6px 15px 0;
+    border: 1px solid #ccc;
+    cursor: pointer;
+}
+.specs-dimension .lowModel-specs-active em {
+    display: block;
+}
+.specs-dimension li em {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    display: none;
+    width: 22px;
+    height: 22px;
+    background: url(http://static1.biyao.com/pc/common/img/master/specs-active.png?v=biyao_99d793b) no-repeat;
+}
+em, cite {
+    font-style: normal;
+    font-weight: 400;
+        font-size: 12px;
+        
+}
+.specs-detail {
+    height: 33px;
+    line-height: 33px;
+    padding: 0 23px;
+    font-size: 14px;
+}
+.panel-press>span {
+    height: 35px;
+    line-height: 42px;
+}
+.panel-main .panel_but{
+    margin: 40px 0px;
+}
+.panel_but button{
+    display: block;
+    margin: auto;
+    width: 180px;
+    height: 40px;
+    color: #fff;
+    font-size: 18px;
+    text-align: center;
+    background: #523669;
+    cursor: pointer;
+    border: none;
+}

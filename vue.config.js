@@ -8,6 +8,6 @@ module.exports = defineConfig({
         target: 'http://www.biyao.com/',
         changeOrigin: true,
       }
-    }
+    },
   }
 })

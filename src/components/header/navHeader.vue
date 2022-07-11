@@ -47,7 +47,7 @@
 <script>
 import serach from "./serach.vue";
 export default {
-  props: ["logName"],
+  props: ["logName",'logPath'],
   data() {
     return {
       hostword: [],
@@ -77,11 +77,6 @@ export default {
   },
   components: {
     serach,
-  },
-  computed: {
-    logPath() {
-      return sessionStorage.getItem("userName") ? "" : "/logreg";
-    },
   },
 };
 </script>

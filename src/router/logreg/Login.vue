@@ -29,6 +29,7 @@ export default {
           alert("登录成功");
         }
         this.that.setLogName(sessionStorage.getItem("userName"))
+        this.that.setLogPath()
         if (sessionStorage.getItem("toPath")) {
           this.$router.replace(sessionStorage.getItem("toPath"));
         } else {

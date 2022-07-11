@@ -28,7 +28,8 @@ export default {
         this.$Axios(this.$Apis.register+`?userName=${this.username}&password=${this.userpwd}`).then(res=>{
           console.log();
           if(res.data.code==1){
-            alert('注册成功')
+            alert('注册成功，将跳转到登录页')
+            this.$router.push('/logreg/login')
           }else{
             alert('用户名被占用')
           }

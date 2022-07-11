@@ -1,6 +1,6 @@
 <template>
   <div class="page">
-    <navHeader :logName="logName"></navHeader>
+    <navHeader :logName="logName" :logPath='logPath'></navHeader>
     <router-view />
     <goTop></goTop>
     <foot ref="foot"></foot>
@@ -57,11 +57,15 @@ export default {
       logName: sessionStorage.getItem("userName")
         ? "欢迎" + sessionStorage.getItem("userName")
         : "登录/注册",
+      logPath:sessionStorage.getItem("userName") ? "" : "/logreg"
     };
   },
   methods: {
     setLogName(val) {
       this.logName = "欢迎" + val;
+    },
+    setLogPath() {
+      this.logPath = '';
     },
   },
   provide() {

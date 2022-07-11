@@ -17,9 +17,7 @@
 </template>
 
 <script>
-export default {
-  
-};
+export default {};
 </script>
 
 <style scoped>
@@ -62,7 +60,7 @@ export default {
   color: #784cfa;
   border-bottom: 2px solid #784cfa;
 }
-.logreg_box{
+.logreg_box {
   width: 320px;
   margin: 50px auto;
 }

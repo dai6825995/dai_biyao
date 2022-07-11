@@ -37,7 +37,7 @@
         </router-link>
         <router-link to="/shopcar">购物车</router-link>
         <a class="fengge"></a>
-        <router-link :to='logPath'>{{ logName }}</router-link>
+        <router-link :to="logPath">{{ logName }}</router-link>
       </div>
     </div>
   </div>
@@ -47,6 +47,7 @@
 <script>
 import serach from "./serach.vue";
 export default {
+  props: ["logName"],
   data() {
     return {
       hostword: [],
@@ -78,11 +79,6 @@ export default {
     serach,
   },
   computed: {
-    logName() {
-      return sessionStorage.getItem("userName")
-        ? `欢迎` + sessionStorage.getItem("userName")
-        : "登录/注册";
-    },
     logPath() {
       return sessionStorage.getItem("userName") ? "" : "/logreg";
     },

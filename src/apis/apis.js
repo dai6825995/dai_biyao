@@ -13,7 +13,8 @@ const apis = {
     detail: baseUrl + "/detail",                        //商品详情接口
     add: baseUrl + "/add",                              //添加购物车接口
     sameList: baseUrl + "/sameList",                    //同类商品接口
-    supplierList: baseUrl + "/supplierList",                    //进店看看接口
+    supplierList: baseUrl + "/supplierList",            //进店看看接口
+    shopList: baseUrl + "/shopList",                    //获取购物车接口
 }
 
 export default apis

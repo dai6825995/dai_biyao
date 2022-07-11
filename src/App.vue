@@ -1,6 +1,6 @@
 <template>
   <div class="page">
-    <navHeader></navHeader>
+    <navHeader :logName="logName"></navHeader>
     <router-view />
     <goTop></goTop>
     <foot ref="foot"></foot>
@@ -38,12 +38,12 @@ dl {
   list-style: none;
 }
 .clearfix:after {
-    content: ".";
-    display: block;
-    clear: both;
-    visibility: hidden;
-    line-height: 0;
-    height: 0;
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
 }
 </style>
 
@@ -52,6 +52,23 @@ import navHeader from "@/components/header/navHeader.vue";
 import foot from "@/components/foot/foot.vue";
 import goTop from "@/components/goTop.vue";
 export default {
+  data() {
+    return {
+      logName: sessionStorage.getItem("userName")
+        ? "欢迎" + sessionStorage.getItem("userName")
+        : "登录/注册",
+    };
+  },
+  methods: {
+    setLogName(val) {
+      this.logName = "欢迎" + val;
+    },
+  },
+  provide() {
+    return {
+      that: this,
+    };
+  },
   components: {
     navHeader,
     foot,

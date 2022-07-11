@@ -10,6 +10,7 @@
 
 <script>
 export default {
+  inject:['that'],
   data() {
     return {
       username: "",
@@ -27,10 +28,11 @@ export default {
           }
           alert("登录成功");
         }
+        this.that.setLogName(sessionStorage.getItem("userName"))
         if (sessionStorage.getItem("toPath")) {
           this.$router.replace(sessionStorage.getItem("toPath"));
         } else {
-           this.$router.replace(this.$router.options.history.state.back);
+          this.$router.replace(this.$router.options.history.state.back);
         }
       });
     },

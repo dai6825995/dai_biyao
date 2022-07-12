@@ -1,7 +1,5 @@
 # dai_biyao
 ## 必要商城模拟项目
-### 目前缺少
-#### 购物车
 
 ## Project setup
 ```

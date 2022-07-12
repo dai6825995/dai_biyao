@@ -3,7 +3,7 @@
     <bread>
       <a><b>&gt;</b>购物车</a>
     </bread>
-    <shopList :shopList="shopList"></shopList>
+    <shopList @delShop='delShop' :shopList="shopList"></shopList>
   </div>
 </template>
 
@@ -30,6 +30,9 @@ export default {
         console.log(res.data);
       });
     },
+    delShop(index){
+      this.shopList.splice(index,1)
+    }
   },
   components: {
     bread,

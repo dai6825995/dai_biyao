@@ -37,12 +37,17 @@
       </div>
     </div>
     <div class="shop_bottom" v-if="shopTot">
-      <div>已购买<span>{{totalCount}}</span>件商品</div>
-      <div>合计<span>￥{{totalPrice}}</span></div>
+      <div>
+        已购买<span>{{ totalCount }}</span
+        >件商品
+      </div>
+      <div>
+        合计<span>￥{{ totalPrice }}</span>
+      </div>
     </div>
     <div class="pay" v-if="shopTot">
-        <div><img src="@\assets\images\zfbpay.jpg" alt=""></div>
-        <div><img src="@\assets\images\wxpay.png" alt=""></div>
+      <div><img src="@\assets\images\zfbpay.jpg" alt="" /></div>
+      <div><img src="@\assets\images\wxpay.png" alt="" /></div>
     </div>
   </div>
 </template>
@@ -68,9 +73,9 @@ export default {
       return count;
     },
     totalPrice() {
-         let price = 0;
+      let price = 0;
       this.selAll.forEach((element) => {
-        price += element.count*element.priceStr*1;
+        price += element.count * element.priceStr * 1;
       });
       return price;
     },
@@ -78,33 +83,38 @@ export default {
   methods: {
     reduce(shop) {
       shop.count--;
-      if (shop.count <= 0) {
-        shop.count = 0;
-        this.selAll.splice(this.selAll.indexOf(shop),1)
-      }
+      shop.count <= 0 ? this.del(shop) : "";
     },
     quanxuan() {
-      if (!this.isAll) {
-        this.selAll = [...this.shopList];
-      } else {
-        this.selAll = [];
-      }
+      this.isAll ? (this.selAll = [...this.shopList]) : (this.selAll = []);
     },
-    del(shop){
-        let userId=sessionStorage.getItem('userId')
-        let goodId=shop.Id
-        let token=sessionStorage.getItem('token')
-        console.log(userId,goodId,token);
-        this.$Axios(this.$Apis.del+`?userId=${userId}&goodId=${goodId}$token=${token}`).then(res=>{
-            console.log(res);
-        })
-    }
+    del(shop) {
+      let userId = sessionStorage.getItem("userId");
+      let goodId = shop.Id;
+      let token = sessionStorage.getItem("token");
+      this.$Axios(
+        this.$Apis.del + `?userId=${userId}&goodId=${goodId}&token=${token}`
+      ).then((res) => {
+        if (res.data.code == 1) {
+          alert("删除成功");
+          this.$emit("delShop", this.shopList.indexOf(shop));
+          this.selAll.forEach((itm, index) => {
+            shop.Id == itm.Id ? this.selAll.splice(index, 1) : "";
+          });
+        }
+      });
+    },
   },
   watch: {
-    selAll: {
+    selAll(val) {
+      this.isAll = val.length == this.shopList.length;
+    },
+    shopList: {
       deep: true,
       handler(val) {
-        this.isAll = val.length == this.shopList.length ? true : false;
+        this.isAll = this.shopList.length
+          ? this.selAll.length == val.length
+          : false;
       },
     },
   },

@@ -15,7 +15,7 @@ const apis = {
     sameList: baseUrl + "/sameList",                    //同类商品接口
     supplierList: baseUrl + "/supplierList",            //进店看看接口
     shopList: baseUrl + "/shopList",                    //获取购物车接口
-    remove: baseUrl + "/remove",                        //获取购物车接口     ？token验证不通过
+    remove: baseUrl + "/remove",                        //获取购物车接口     
     del: baseUrl + "/del",                              //删除购物车商品接口
 }
 
